@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import Banner from "../Banner/Banner";
+import UpcomingMarathon from "../UpcomingMarathon/UpcomingMarathon";
 
 const Home = () => {
   return (
     <div>
-      <h2>We are in home now</h2>
-      <Link to="/signIn">sign In</Link>
+      <Banner />
+      <UpcomingMarathon />
     </div>
   );
 };

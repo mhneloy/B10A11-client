@@ -1,0 +1,80 @@
+[
+  {
+    "id": 101001,
+    "title": "Urban Hustle 5K",
+    "startRegistrationDate": "2024-01-15",
+    "endRegistrationDate": "2024-02-01",
+    "marathonStartDate": "2024-02-15",
+    "location": "Downtown Seattle, Washington",
+    "runningDistance": "5k",
+    "description": "Experience the vibrant city streets of Seattle in this energetic 5k marathon.",
+    "marathonImage": "https://i.ibb.co.com/W3TTW5C/f6cbd4fc-c329-46d2-af9a-c7bfc49470c7-haunted-1-DPC-4013.jpg",
+    "totalRegistrationCount": 0,
+    "createdAt": "2024-12-22T00:00:00Z"
+  },
+  {
+    "id": 101002,
+    "title": "Valley Vista 10K",
+    "startRegistrationDate": "2024-02-10",
+    "endRegistrationDate": "2024-02-28",
+    "marathonStartDate": "2024-03-15",
+    "location": "Sonoma Valley, California",
+    "runningDistance": "10k",
+    "description": "Run amidst the rolling hills and picturesque vineyards of Sonoma Valley.",
+    "marathonImage": "https://i.ibb.co.com/WGkxGbT/SGT-L-SRLA-RUN-1025-dk-02.jpg",
+    "totalRegistrationCount": 0,
+    "createdAt": "2024-12-22T00:00:00Z"
+  },
+  {
+    "id": 101003,
+    "title": "Sunset Relay 3K",
+    "startRegistrationDate": "2024-03-01",
+    "endRegistrationDate": "2024-03-20",
+    "marathonStartDate": "2024-04-01",
+    "location": "Miami Beach, Florida",
+    "runningDistance": "3k",
+    "description": "Join this short and fun relay event set against a stunning sunset backdrop.",
+    "marathonImage": "https://i.ibb.co.com/QjtC5tv/sunset-marathon-run-stockcake.jpg",
+    "totalRegistrationCount": 0,
+    "createdAt": "2024-12-22T00:00:00Z"
+  },
+  {
+    "id": 101004,
+    "title": "Forest Run 25K",
+    "startRegistrationDate": "2024-03-15",
+    "endRegistrationDate": "2024-04-10",
+    "marathonStartDate": "2024-04-20",
+    "location": "Yosemite National Park, California",
+    "runningDistance": "25k",
+    "description": "Explore the lush greenery and serene trails of Yosemite in this 25k challenge.",
+    "marathonImage": "https://i.ibb.co.com/V9YSyHS/13115968-1017059021694054-4915710471798545659-o-orig.jpg",
+    "totalRegistrationCount": 0,
+    "createdAt": "2024-12-22T00:00:00Z"
+  },
+  {
+    "id": 101005,
+    "title": "Riverfront Rush 10K",
+    "startRegistrationDate": "2024-04-05",
+    "endRegistrationDate": "2024-04-25",
+    "marathonStartDate": "2024-05-05",
+    "location": "Cincinnati, Ohio",
+    "runningDistance": "10k",
+    "description": "Enjoy a refreshing 10k run along the scenic Ohio River.",
+    "marathonImage": "https://i.ibb.co.com/pQcN81t/tf-tor10k23-0068-scaled.jpg",
+    "totalRegistrationCount": 0,
+    "createdAt": "2024-12-22T00:00:00Z"
+  },
+  {
+    "id": 101006,
+    "title": "Desert Mirage 5K",
+    "startRegistrationDate": "2024-05-01",
+    "endRegistrationDate": "2024-05-20",
+    "marathonStartDate": "2024-06-01",
+    "location": "Phoenix, Arizona",
+    "runningDistance": "5k",
+    "description": "Run through the warm sands and stunning desert landscapes of Phoenix.",
+    "marathonImage": "https://i.ibb.co.com/ysnRc4R/Marathon-de-Sables-9.jpg",
+    "totalRegistrationCount": 0,
+    "createdAt": "2024-12-22T00:00:00Z"
+  }
+]
