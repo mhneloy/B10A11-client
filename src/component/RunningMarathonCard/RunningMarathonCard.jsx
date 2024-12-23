@@ -1,8 +1,10 @@
 import PropTypes from "prop-types";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const RunningMarathonCard = ({ marathon }) => {
   const {
+    _id,
     title,
     location,
     startRegistrationDate,
@@ -45,7 +47,9 @@ const RunningMarathonCard = ({ marathon }) => {
 
         {/* Action Button */}
         <div className="card-actions justify-end mt-4">
-          <button className="btn btn-primary">See Details</button>
+          <Link to={`/details/${_id}`} className="btn btn-primary w-full">
+            See Details
+          </Link>
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const DashBoardNav = () => {
   return (
     <nav className="bg-transparent text-white">
-      <div className=" px-4 lg:pl-28 py-4">
+      <div className="py-4">
         {/* Navbar Menu */}
         <ul className="flex flex-col items-start space-y-4">
           <li>

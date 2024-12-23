@@ -1,0 +1,20 @@
+[
+  {
+    "name": "John Doe",
+    "role": "Marathon Participant",
+    "review": "The platform made it so easy to sign up and track my progress. The event was well-organized and a memorable experience!",
+    "image": "https://i.ibb.co.com/Y8xVJgS/B4034-D5-B-B9-CD-0-FDA-A4-A4-B94-A79-E709491-20160616043202649.jpg"
+  },
+  {
+    "name": "Sarah Lee",
+    "role": "Event Organizer",
+    "review": "As an organizer, I loved how intuitive and efficient this platform was. Managing registrations has never been easier!",
+    "image": "https://i.ibb.co.com/bzBjMp1/images-q-tbn-ANd9-Gc-S-Y5-D1-DT-PW0y-CQ-Oc-YWACwv2-Www-HEGnb-Iow-s.jpg"
+  },
+  {
+    "name": "Alex Kim",
+    "role": "Marathon Enthusiast",
+    "review": "A fantastic platform that brings runners and events together. Highly recommend it to anyone passionate about marathons!",
+    "image": "https://i.ibb.co.com/P63PKbM/images-q-tbn-ANd9-Gc-TV6-Iy-ESQ1gv-PHWn-Z8-Vxy-BRnhb-ND8di-S78-Kg-s.jpg"
+  }
+]
