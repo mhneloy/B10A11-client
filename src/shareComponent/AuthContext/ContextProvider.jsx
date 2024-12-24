@@ -14,10 +14,10 @@ import { auth } from "../../firebase.init";
 export const Context = createContext(null);
 
 const ContextProvider = ({ children }) => {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
+  // const [formData, setFormData] = useState({
+  //   email: "",
+  //   password: "",
+  // });
   // user
   const [user, setuser] = useState(null);
   // loading
@@ -66,14 +66,14 @@ const ContextProvider = ({ children }) => {
   };
 
   const authInfo = {
-    formData,
+    // formData,
     user,
     loading,
     togol,
     setTogol,
     setLoading,
     setuser,
-    setFormData,
+    // setFormData,
     loginUser,
     googleLogin,
     createUser,

@@ -46,7 +46,7 @@ const MyMarathonList = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:5000/delete/${id}`)
+          .delete(`http://localhost:5000/delete/marathonCollection/${id}`)
           .then((res) => {
             if (res.data.deleteCount > 0) {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");

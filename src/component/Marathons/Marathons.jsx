@@ -45,8 +45,8 @@ const Marathons = () => {
 
       {/* Marathon Cards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {marathons.map((marathon) => (
-          <RunningMarathonCard key={marathon._id} marathon={marathon} />
+        {marathons?.map((marathon) => (
+          <RunningMarathonCard key={marathon?._id} marathon={marathon} />
         ))}
       </div>
     </section>
