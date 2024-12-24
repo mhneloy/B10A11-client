@@ -98,7 +98,7 @@ const MyApplyList = () => {
       position: "top-center",
     });
   };
-  const handleSubmit = (e, id) => {
+  const handleSubmit = (e, id, modal) => {
     e.preventDefault();
     console.log(id);
     const formData = new FormData(e.target);
@@ -108,6 +108,7 @@ const MyApplyList = () => {
       .then((res) => {
         if (res.data.acknowledged) {
           successNofity();
+          modal.close();
           navigate("/dashboard/dashboard/myApplyList");
         }
       })
@@ -182,7 +183,13 @@ const MyApplyList = () => {
                           Register In {marathon?.title} Marathon
                         </h2>
                         <form
-                          onSubmit={(e) => handleSubmit(e, marathon?._id)}
+                          onSubmit={(e) =>
+                            handleSubmit(
+                              e,
+                              marathon?._id,
+                              document.getElementById(`modal${marathon?._id}`)
+                            )
+                          }
                           className="grid grid-cols-1 md:grid-cols-2 gap-6"
                         >
                           {/* Marathon Title */}
