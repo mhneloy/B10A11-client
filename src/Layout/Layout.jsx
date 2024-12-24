@@ -8,7 +8,7 @@ const Layout = () => {
     <div>
       <ToastContainer />
       <Navbar />
-      <div className={`min-h-[calc(100vh-350px)] bg-[#264653]`}>
+      <div className={`bg-[#264653]`}>
         <Outlet />
       </div>
       <Footer />
