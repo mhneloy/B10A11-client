@@ -95,13 +95,18 @@ const MyMarathonList = () => {
     e.preventDefault();
     console.log(id);
     const formData = new FormData(e.target);
-    const ObjectFormData = Object.fromEntries(formData.entries());
+    const ObjectFormData = {
+      startRegistrationDate: startDate,
+      endRegistrationDate: endDate,
+      marathonStartDate: marathonDate,
+      ...Object.fromEntries(formData.entries()),
+    };
     axios
-      .put(`http://localhost:5000/updateApplication/${id}`, ObjectFormData)
+      .put(`http://localhost:5000/updateCollection/${id}`, ObjectFormData)
       .then((res) => {
         if (res.data.acknowledged) {
           successNofity();
-          navigate("/dashboard/dashboard/myApplyList");
+          navigate("/dashboard/dashboard/myMarathonList");
         }
       })
       .catch((err) => console.log(err));
@@ -231,7 +236,13 @@ const MyMarathonList = () => {
                               </span>
                             </label>
                             <DatePicker
-                              selected={startDate}
+                              selected={
+                                new Date(
+                                  startDate ||
+                                    marathon?.startRegistrationDate ||
+                                    new Date()
+                                )
+                              }
                               onChange={(date) =>
                                 setStartDate(format(date, "yyyy-MM-dd"))
                               }
@@ -247,7 +258,13 @@ const MyMarathonList = () => {
                               </span>
                             </label>
                             <DatePicker
-                              selected={endDate}
+                              selected={
+                                new Date(
+                                  endDate ||
+                                    marathon?.endRegistrationDate ||
+                                    new Date()
+                                )
+                              }
                               onChange={(date) =>
                                 setEndDate(format(date, "yyyy-MM-dd"))
                               }
@@ -263,7 +280,13 @@ const MyMarathonList = () => {
                               </span>
                             </label>
                             <DatePicker
-                              selected={marathonDate}
+                              selected={
+                                new Date(
+                                  marathonDate ||
+                                    marathon?.marathonStartDate ||
+                                    new Date()
+                                )
+                              }
                               onChange={(date) =>
                                 setMarathonDate(format(date, "yyyy-MM-dd"))
                               }
@@ -279,7 +302,8 @@ const MyMarathonList = () => {
                               </span>
                             </label>
                             <select
-                              name="distance"
+                              defaultValue={marathon?.runningDistance}
+                              name="runningDistance"
                               className="select select-bordered w-full"
                             >
                               <option value="3k">3k</option>

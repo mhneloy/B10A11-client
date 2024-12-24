@@ -161,7 +161,10 @@ const AddMarathon = () => {
             <label className="label">
               <span className="label-text font-medium">Running Distance</span>
             </label>
-            <select name="distance" className="select select-bordered w-full">
+            <select
+              name="runningDistance"
+              className="select select-bordered w-full"
+            >
               <option value="3k">3k</option>
               <option value="10k">10k</option>
               <option value="25k">25k</option>
