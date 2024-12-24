@@ -13,6 +13,7 @@ const AllMarathons = () => {
       return res.json();
     },
   });
+  console.log(marathons);
   if (isPending) {
     return (
       <div className="flex justify-center items-center min-h-[50vh]">

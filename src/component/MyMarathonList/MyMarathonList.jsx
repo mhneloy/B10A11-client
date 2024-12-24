@@ -91,7 +91,7 @@ const MyMarathonList = () => {
       position: "top-center",
     });
   };
-  const handleSubmit = (e, id) => {
+  const handleSubmit = (e, id, modal) => {
     e.preventDefault();
     console.log(id);
     const formData = new FormData(e.target);
@@ -106,6 +106,7 @@ const MyMarathonList = () => {
       .then((res) => {
         if (res.data.acknowledged) {
           successNofity();
+          modal.close();
           navigate("/dashboard/dashboard/myMarathonList");
         }
       })
@@ -169,7 +170,13 @@ const MyMarathonList = () => {
                         </h2>
                         {/* form field start */}
                         <form
-                          onSubmit={(e) => handleSubmit(e, marathon?._id)}
+                          onSubmit={(e) =>
+                            handleSubmit(
+                              e,
+                              marathon?._id,
+                              document.getElementById(`modal${marathon?._id}`)
+                            )
+                          }
                           className="grid grid-cols-1 md:grid-cols-2 gap-6"
                         >
                           {/* Marathon Title */}
@@ -237,12 +244,13 @@ const MyMarathonList = () => {
                             </label>
                             <DatePicker
                               selected={
-                                new Date(
-                                  startDate ||
-                                    marathon?.startRegistrationDate ||
-                                    new Date()
-                                )
+                                startDate
+                                  ? new Date(startDate)
+                                  : marathon?.startRegistrationDate
+                                  ? new Date(marathon?.startRegistrationDate)
+                                  : new Date()
                               }
+                              dateFormat={"yyyy-MM-dd"}
                               onChange={(date) =>
                                 setStartDate(format(date, "yyyy-MM-dd"))
                               }
@@ -259,12 +267,13 @@ const MyMarathonList = () => {
                             </label>
                             <DatePicker
                               selected={
-                                new Date(
-                                  endDate ||
-                                    marathon?.endRegistrationDate ||
-                                    new Date()
-                                )
+                                endDate
+                                  ? new Date(endDate)
+                                  : marathon?.endRegistrationDate
+                                  ? new Date(marathon.endRegistrationDate)
+                                  : new Date()
                               }
+                              dateFormat={"yyyy-MM-dd"}
                               onChange={(date) =>
                                 setEndDate(format(date, "yyyy-MM-dd"))
                               }
@@ -281,12 +290,13 @@ const MyMarathonList = () => {
                             </label>
                             <DatePicker
                               selected={
-                                new Date(
-                                  marathonDate ||
-                                    marathon?.marathonStartDate ||
-                                    new Date()
-                                )
+                                marathonDate
+                                  ? new Date(marathonDate)
+                                  : marathon?.marathonStartDate
+                                  ? new Date(marathon?.marathonStartDate)
+                                  : new Date()
                               }
+                              dateFormat={"yyyy-MM-dd"}
                               onChange={(date) =>
                                 setMarathonDate(format(date, "yyyy-MM-dd"))
                               }

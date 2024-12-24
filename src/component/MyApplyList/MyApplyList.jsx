@@ -1,15 +1,18 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { FaEdit, FaMapMarkerAlt, FaTrashAlt } from "react-icons/fa";
+import { FaEdit, FaMapMarkerAlt, FaSearch, FaTrashAlt } from "react-icons/fa";
 import useCustomContex from "../../shareComponent/AuthContext/useCustomContex";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { useRef, useState } from "react";
 
 const MyApplyList = () => {
   const { user } = useCustomContex();
   const queryClient = useQueryClient();
   const navigate = useNavigate();
+  const [searchTitle, setSearchTitle] = useState("");
+  const searchInputRef = useRef();
 
   // Fetch marathons using React Query
   const {
@@ -17,10 +20,10 @@ const MyApplyList = () => {
     isFetching: ispending,
     error,
   } = useQuery({
-    queryKey: ["marathons"],
+    queryKey: ["marathons", searchTitle],
     queryFn: async () => {
       const response = await fetch(
-        `http://localhost:5000/marathon/marthonApplication?email=${user.email}`
+        `http://localhost:5000/marathon/marthonApplication?email=${user.email}&title=${searchTitle}`
       );
       if (!response.ok) throw new Error("Failed to fetch marathons");
       return response.json();
@@ -80,6 +83,16 @@ const MyApplyList = () => {
       </div>
     );
   }
+  const handleSearchChange = (e) => {
+    console.log("hi");
+    if (e.key === "Enter") {
+      setSearchTitle(e.target.value);
+      console.log("hello");
+    }
+  };
+  const handleClickSerach = () => {
+    setSearchTitle(searchInputRef.current.value);
+  };
   const successNofity = () => {
     toast.success("Successfully Updated!", {
       position: "top-center",
@@ -105,6 +118,22 @@ const MyApplyList = () => {
     <>
       <div className="p-6 bg-gradient-to-r from-[#e8f1f3] via-[#f2f7f9] to-[#e8f1f3] min-h-screen">
         <h2 className="text-2xl font-bold mb-6">My Apply List</h2>
+        <div className="mb-6 relative">
+          <div className="w-full max-w-md relative">
+            <FaSearch
+              className="absolute top-1/2 right-4 transform -translate-y-1/2 text-gray-400"
+              onClick={handleClickSerach}
+            />
+            <input
+              type="text"
+              name="search"
+              ref={searchInputRef}
+              placeholder="Search by title..."
+              onKeyUp={handleSearchChange}
+              className="input input-bordered w-full max-w-md pl-10" // Add padding for the icon
+            />
+          </div>
+        </div>
         <table className="table w-full border border-gray-300">
           <thead>
             <tr className="bg-gray-100">

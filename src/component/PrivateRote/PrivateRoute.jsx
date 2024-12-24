@@ -6,7 +6,11 @@ const PrivateRoute = ({ children }) => {
   const { user, loading } = useCustomContex();
   const location = useLocation();
   if (loading) {
-    return <span className="loading loading-bars loading-lg"></span>;
+    return (
+      <div className="flex justify-center items-center">
+        <span className="loading loading-bars loading-lg"></span>
+      </div>
+    );
   }
   if (user && user?.email) {
     return <>{children}</>;
