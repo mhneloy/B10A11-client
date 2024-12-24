@@ -1,5 +1,6 @@
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
+import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 const DetailsPage = () => {
   const marathon = useLoaderData();
@@ -9,6 +10,7 @@ const DetailsPage = () => {
     location,
     startRegistrationDate,
     endRegistrationDate,
+    marathonStartDate,
     marathonImage,
     createdAt,
     description,
@@ -22,6 +24,9 @@ const DetailsPage = () => {
   const endDate = new Date(endRegistrationDate);
 
   const isRegistationOpen = currentDate >= startDate && currentDate <= endDate;
+
+  // Get the time remaining until the marathon start date
+  const timeRemaining = new Date(marathonStartDate) - currentDate;
 
   return (
     <div className="container mx-auto">
@@ -49,6 +54,34 @@ const DetailsPage = () => {
             {location}
           </div>
 
+          {/* Countdown Timer */}
+          <div className="mt-4">
+            <h3 className="text-md font-semibold text-gray-700">
+              Countdown to Marathon Start:
+            </h3>
+            <CountdownCircleTimer
+              isPlaying
+              duration={timeRemaining / 1000} // Convert ms to seconds
+              colors={["#004777", "#F7B801", "#A30000"]}
+              colorsTime={[10, 5, 0]}
+              size={120}
+              trailColor="#d3d3d3"
+            >
+              {({ remainingTime }) => {
+                const hours = Math.floor(remainingTime / 3600);
+                const minutes = Math.floor((remainingTime % 3600) / 60);
+                const days = Math.floor(remainingTime / (3600 * 24));
+                return (
+                  <div>
+                    <div>{days} Days</div>
+                    <div>{hours} Hours</div>
+                    <div>{minutes} Minutes</div>
+                  </div>
+                );
+              }}
+            </CountdownCircleTimer>
+          </div>
+
           {/* Registration Dates */}
           <p className="text-sm text-gray-500 mt-2">
             Registration:{" "}
@@ -56,14 +89,14 @@ const DetailsPage = () => {
               {startRegistrationDate} - {endRegistrationDate}
             </span>
           </p>
-          {/* Registation Count */}
+          {/* Registration Count */}
           <p className="text-sm text-gray-500 mt-2">
-            Registation Count:{" "}
+            Registration Count:{" "}
             <span className="font-medium text-gray-700">
               {totalRegistationCount}
             </span>
           </p>
-          {/* created At */}
+          {/* Created At */}
           <p className="text-sm text-gray-500 mt-2">
             Created At:{" "}
             <span className="font-medium text-gray-700">{createdAt}</span>
@@ -77,12 +110,11 @@ const DetailsPage = () => {
           <p className="text-sm text-gray-500 mt-2">
             Creator:{" "}
             <span className="font-medium text-gray-700">
-              {creator ? `${creator}` : `undefine`}
+              {creator ? `${creator}` : `undefined`}
             </span>
           </p>
 
-          {/* registation button */}
-
+          {/* Registration button */}
           <Link
             to={`/registrationform/${_id}`}
             className="btn btn-primary mt-4"

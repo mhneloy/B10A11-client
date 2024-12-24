@@ -1,19 +1,24 @@
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import RunningMarathonCard from "../RunningMarathonCard/RunningMarathonCard";
 
 const AllMarathons = () => {
+  const [sortOrder, setSortOrder] = useState("desc");
+
   const {
     data: marathons,
     isPending,
     error,
   } = useQuery({
-    queryKey: ["marathons"],
+    queryKey: ["marathons", sortOrder],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/allmarathons/marathons`);
+      const res = await fetch(
+        `http://localhost:5000/allmarathons/marathons?sortOrder=${sortOrder}`
+      );
       return res.json();
     },
   });
-  console.log(marathons);
+
   if (isPending) {
     return (
       <div className="flex justify-center items-center min-h-[50vh]">
@@ -29,6 +34,7 @@ const AllMarathons = () => {
       </div>
     );
   }
+
   return (
     <section className="py-10 px-4 lg:px-20 bg-gray-50">
       {/* Section Heading */}
@@ -40,6 +46,19 @@ const AllMarathons = () => {
           Find the perfect marathon for you and join the running community
           today!
         </p>
+      </div>
+
+      {/* Sorting Options */}
+      <div className="text-center mb-6">
+        <label className="mr-2 text-gray-600">Sort by:</label>
+        <select
+          className="select select-bordered w-40"
+          value={sortOrder}
+          onChange={(e) => setSortOrder(e.target.value)}
+        >
+          <option value="desc">Newest First</option>
+          <option value="asc">Oldest First</option>
+        </select>
       </div>
 
       {/* Marathon Cards Grid */}
