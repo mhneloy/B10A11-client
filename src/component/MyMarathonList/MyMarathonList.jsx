@@ -11,7 +11,6 @@ import useAxiosSecure from "../useAxiosSecure/useAxiosSecure";
 const MyMarathonList = () => {
   const axiousInterce = useAxiosSecure();
   const { user } = useCustomContex();
-  // Fetch marathons using React Query
   const {
     data: marathons,
     isFetching: ispending,
