@@ -4,14 +4,12 @@ import useCustomContex from "../../shareComponent/AuthContext/useCustomContex";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
 import useAxiosSecure from "../useAxiosSecure/useAxiosSecure";
 
 const MyApplyList = () => {
   const axiosInstance = useAxiosSecure();
   const { user } = useCustomContex();
-  const navigate = useNavigate();
   const [searchTitle, setSearchTitle] = useState("");
   const searchInputRef = useRef();
 
@@ -110,7 +108,7 @@ const MyApplyList = () => {
         if (res.data.acknowledged) {
           successNofity();
           modal.close();
-          navigate("/dashboard/dashboard/myApplyList");
+          refetch();
         }
       })
       .catch((err) => console.log(err));

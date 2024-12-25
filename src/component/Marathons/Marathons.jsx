@@ -10,7 +10,7 @@ const Marathons = () => {
     queryKey: ["marathon"],
     queryFn: async () => {
       const res = await fetch(
-        `https://server-site-ashen.vercel.app/allmarathons`
+        `https://server-site-ashen.vercel.app/marathonsLimit`
       );
       return res.json();
     },

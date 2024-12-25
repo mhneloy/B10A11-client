@@ -58,6 +58,7 @@ const ContextProvider = ({ children }) => {
       setuser(currentUser);
       if (currentUser?.email) {
         const user = { email: currentUser.email };
+        console.log(user, "hello user");
         axios
           .post(`https://server-site-ashen.vercel.app/jwt`, user, {
             withCredentials: true,
@@ -80,7 +81,7 @@ const ContextProvider = ({ children }) => {
       setLoading(false);
     });
     return () => {
-      unsubscribe;
+      unsubscribe();
     };
   }, []);
 

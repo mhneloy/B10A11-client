@@ -4,7 +4,6 @@ import useCustomContex from "../../shareComponent/AuthContext/useCustomContex";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import { useState } from "react";
 import { format } from "date-fns";
@@ -12,8 +11,6 @@ import useAxiosSecure from "../useAxiosSecure/useAxiosSecure";
 const MyMarathonList = () => {
   const axiousInterce = useAxiosSecure();
   const { user } = useCustomContex();
-  const navigate = useNavigate();
-
   // Fetch marathons using React Query
   const {
     data: marathons,
@@ -110,7 +107,7 @@ const MyMarathonList = () => {
         if (res.data.acknowledged) {
           successNofity();
           modal.close();
-          navigate("/dashboard/dashboard/myMarathonList");
+          refetch();
         }
       })
       .catch((err) => console.log(err));

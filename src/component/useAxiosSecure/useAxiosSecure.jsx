@@ -4,7 +4,7 @@ import useCustomContex from "../../shareComponent/AuthContext/useCustomContex";
 import { useNavigate } from "react-router-dom";
 
 const axiosInstance = axios.create({
-  baseURL: ["https://server-site-ashen.vercel.app"],
+  baseURL: "https://server-site-ashen.vercel.app",
   withCredentials: true,
 });
 const useAxiosSecure = () => {
@@ -17,12 +17,8 @@ const useAxiosSecure = () => {
       },
       (err) => {
         if (err.status === 401 || err.status === 403) {
-          logout()
-            .then(() => {
-              navigate("/signIn");
-            })
-            .catch((err) => console.log(err));
-        } else {
+          console.log(err);
+          console.log("hello bug");
           logout()
             .then(() => {
               navigate("/signIn");
