@@ -3,16 +3,16 @@ import { useQuery } from "@tanstack/react-query";
 const Testimonials = () => {
   const {
     data: reviews,
-    isPending,
+    isPending: isLoading,
     error,
   } = useQuery({
-    queryKey: "reviews",
+    queryKey: ["reviews"],
     queryFn: async () => {
       const res = await fetch(`../testimonial.json`);
       return res.json();
     },
   });
-  if (isPending) {
+  if (isLoading) {
     return (
       <div className="flex justify-center items-center min-h-[50vh]">
         <span className="loading loading-bars loading-lg"></span>
@@ -42,7 +42,7 @@ const Testimonials = () => {
 
       {/* Testimonials Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {reviews.map((review, index) => (
+        {reviews?.map((review, index) => (
           <div
             key={index}
             className="p-6 bg-base-100 shadow-xl border border-gray-200 rounded-lg text-center"

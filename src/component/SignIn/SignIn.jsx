@@ -2,11 +2,13 @@ import Lottie from "lottie-react";
 import signin from "../../Lotties/signin.json";
 import useCustomContex from "../../shareComponent/AuthContext/useCustomContex";
 import { FaGoogle } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+// import axios from "axios";
 
 const SignIn = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { loginUser, googleLogin } = useCustomContex();
 
   const successNofity = () => {
@@ -28,18 +30,26 @@ const SignIn = () => {
     const password = form.password.value;
     loginUser(email, password)
       .then((result) => {
-        const user = { email: email };
         if (result.user) {
-          console.log(user);
+          // axios.post(`http://localhost:5000/jwt`, user).then((res) => {
+          //   console.log(res.data);
+          // });
+          successNofity();
+          e.target.reset();
+          if (location.state) {
+            navigate(location.state);
+          } else {
+            navigate("/");
+          }
         }
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => errorNofity(err.message));
   };
 
   const handleGoogleLogin = () => {
     googleLogin()
       .then((result) => {
-        console.log(result.user);
+        console.log(result);
         if (location.state) {
           navigate(location.state);
         } else {

@@ -63,6 +63,13 @@ const Banner = () => {
             className="w-full h-[300px] sm:h-[400px] md:h-[600px] lg:h-[800px] object-cover"
           />
         </SwiperSlide>
+        <SwiperSlide className="relative">
+          <img
+            src={bannerimg1}
+            alt="Banner 1"
+            className="w-full h-[300px] sm:h-[400px] md:h-[600px] lg:h-[800px] object-cover"
+          />
+        </SwiperSlide>
       </Swiper>
 
       {/* Thumbnail Swiper */}
@@ -95,6 +102,13 @@ const Banner = () => {
             <img
               src={bannerimg3}
               alt="Thumbnail 3"
+              className="w-20 h-full object-cover"
+            />
+          </SwiperSlide>
+          <SwiperSlide className="!w-fit cursor-pointer">
+            <img
+              src={bannerimg1}
+              alt="Thumbnail 1"
               className="w-20 h-full object-cover"
             />
           </SwiperSlide>

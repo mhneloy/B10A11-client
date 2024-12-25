@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
   const navigate = useNavigate();
+
   const { createUser, googleLogin, updateProfiles, setuser } =
     useCustomContex();
   const successNofity = () => {
@@ -48,6 +49,7 @@ const Register = () => {
           updateProfiles({ displayName: name, photoURL: imgUrl }).then(() => {
             successNofity();
             navigate("/marathons");
+
             setuser((prev) => ({
               ...prev,
               displayName: name,
@@ -64,6 +66,7 @@ const Register = () => {
     googleLogin()
       .then((result) => {
         console.log(result.user);
+        navigate("/marathons");
         toast.success("Successfully logged in with Google!", {
           position: "top-center",
         });
