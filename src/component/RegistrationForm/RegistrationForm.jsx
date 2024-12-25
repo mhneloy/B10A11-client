@@ -32,7 +32,10 @@ const RegistrationForm = () => {
       ...Object.fromEntries(formData.entries()),
     };
     axios
-      .post(`http://localhost:5000/marathonApplication`, objectFormData)
+      .post(
+        `https://server-site-ashen.vercel.app/marathonApplication`,
+        objectFormData
+      )
       .then((res) => {
         if (res.data.acknowledged) {
           successNofity();

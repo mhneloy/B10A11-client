@@ -30,7 +30,7 @@ export const route = createBrowserRouter([
       {
         path: "/details/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/details/${params.id}`),
+          fetch(`https://server-site-ashen.vercel.app/details/${params.id}`),
         element: (
           <PrivateRoute>
             <DetailsPage />
@@ -40,7 +40,7 @@ export const route = createBrowserRouter([
       {
         path: "/registrationform/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/details/${params.id}`),
+          fetch(`https://server-site-ashen.vercel.app/details/${params.id}`),
         element: (
           <PrivateRoute>
             <RegistrationForm></RegistrationForm>

@@ -49,7 +49,9 @@ const MyMarathonList = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:5000/delete/marathonCollection/${id}`)
+          .delete(
+            `https://server-site-ashen.vercel.app/delete/marathonCollection/${id}`
+          )
           .then((res) => {
             if (res.data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
@@ -100,7 +102,10 @@ const MyMarathonList = () => {
       ...Object.fromEntries(formData.entries()),
     };
     axios
-      .put(`http://localhost:5000/updateCollection/${id}`, ObjectFormData)
+      .put(
+        `https://server-site-ashen.vercel.app/updateCollection/${id}`,
+        ObjectFormData
+      )
       .then((res) => {
         if (res.data.acknowledged) {
           successNofity();

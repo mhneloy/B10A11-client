@@ -45,7 +45,7 @@ const MyApplyList = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:5000/delete/${id}`)
+          .delete(`https://server-site-ashen.vercel.app/delete/${id}`)
           .then((res) => {
             if (res.data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
@@ -102,7 +102,10 @@ const MyApplyList = () => {
     const formData = new FormData(e.target);
     const ObjectFormData = Object.fromEntries(formData.entries());
     axios
-      .put(`http://localhost:5000/updateApplication/${id}`, ObjectFormData)
+      .put(
+        `https://server-site-ashen.vercel.app/updateApplication/${id}`,
+        ObjectFormData
+      )
       .then((res) => {
         if (res.data.acknowledged) {
           successNofity();

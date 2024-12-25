@@ -9,7 +9,9 @@ const Marathons = () => {
   } = useQuery({
     queryKey: ["marathon"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/allmarathons`);
+      const res = await fetch(
+        `https://server-site-ashen.vercel.app/allmarathons`
+      );
       return res.json();
     },
   });

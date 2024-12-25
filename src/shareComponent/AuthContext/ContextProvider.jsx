@@ -59,7 +59,9 @@ const ContextProvider = ({ children }) => {
       if (currentUser?.email) {
         const user = { email: currentUser.email };
         axios
-          .post(`http://localhost:5000/jwt`, user, { withCredentials: true })
+          .post(`https://server-site-ashen.vercel.app/jwt`, user, {
+            withCredentials: true,
+          })
           .then((res) => {
             console.log(res.data);
           })
@@ -67,7 +69,7 @@ const ContextProvider = ({ children }) => {
       } else {
         axios
           .post(
-            `http://localhost:5000/jwtLogout`,
+            `https://server-site-ashen.vercel.app/jwtLogout`,
             {},
             {
               withCredentials: true,

@@ -42,7 +42,7 @@ const AddMarathon = () => {
 
     console.log(objectFormData);
     axios
-      .post(`http://localhost:5000/addmarathons`, objectFormData)
+      .post(`https://server-site-ashen.vercel.app/addmarathons`, objectFormData)
       .then((res) => {
         if (res.data.acknowledged) {
           successNofity();

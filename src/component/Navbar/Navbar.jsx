@@ -13,9 +13,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "!text-black !bg-[#00FFFF] font-bold hover:bg-[#00FFFF] "
-              : ` font-bold  hover:bg-[#00FFFF] hover:text-black 
-                     "bg-[#2A9D8F] text-white lg:text-white"
-                `
+              : "font-bold  hover:bg-[#00FFFF] hover:text-black   lg:text-white"
           }
           to="/"
         >
@@ -27,9 +25,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "!text-black !bg-[#00FFFF] font-bold hover:bg-[#00FFFF] "
-              : ` font-bold  hover:bg-[#00FFFF] hover:text-black 
-                     "bg-[#2A9D8F] text-white lg:text-white"
-                `
+              : " font-bold  hover:bg-[#00FFFF] hover:text-black lg:text-white"
           }
           to="/marathons"
         >
@@ -41,10 +37,8 @@ const Navbar = () => {
           <NavLink
             className={({ isActive }) =>
               isActive
-                ? "!text-black !bg-[#00FFFF] font-bold hover:bg-[#00FFFF] "
-                : ` font-bold  hover:bg-[#00FFFF] hover:text-black 
-                     "bg-[#2A9D8F] text-white lg:text-white"
-                `
+                ? "!text-black !bg-[#00FFFF] font-bold hover:bg-[#00FFFF]"
+                : "font-bold hover:bg-[#00FFFF] hover:text-black lg:text-white"
             }
             to="/dashboard"
           >
