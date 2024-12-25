@@ -1,4 +1,4 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { FaEdit, FaMapMarkerAlt, FaSearch, FaTrashAlt } from "react-icons/fa";
 import useCustomContex from "../../shareComponent/AuthContext/useCustomContex";
 import Swal from "sweetalert2";
@@ -6,10 +6,11 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
+import useAxiosSecure from "../useAxiosSecure/useAxiosSecure";
 
 const MyApplyList = () => {
+  const axiosInstance = useAxiosSecure();
   const { user } = useCustomContex();
-  const queryClient = useQueryClient();
   const navigate = useNavigate();
   const [searchTitle, setSearchTitle] = useState("");
   const searchInputRef = useRef();
@@ -19,14 +20,15 @@ const MyApplyList = () => {
     data: marathons,
     isFetching: ispending,
     error,
+    refetch,
   } = useQuery({
     queryKey: ["marathons", searchTitle],
     queryFn: async () => {
-      const response = await fetch(
-        `http://localhost:5000/marathon/marthonApplication?email=${user.email}&title=${searchTitle}`
+      const response = await axiosInstance.get(
+        `/marathon/marthonApplication?email=${user.email}&title=${searchTitle}`
       );
-      if (!response.ok) throw new Error("Failed to fetch marathons");
-      return response.json();
+      console.log(response);
+      return response.data;
     },
   });
 
@@ -45,14 +47,10 @@ const MyApplyList = () => {
         axios
           .delete(`http://localhost:5000/delete/${id}`)
           .then((res) => {
-            if (res.data.deleteCount > 0) {
+            if (res.data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
-
-              // Update React Query cache
-              queryClient.setQueryData(["marathons"], (oldData) => {
-                if (!oldData) return [];
-                return oldData.filter((marathon) => marathon._id !== id);
-              });
+              console.log("hello");
+              refetch();
             }
           })
           .catch((error) => {

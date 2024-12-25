@@ -31,8 +31,6 @@ const RegistrationForm = () => {
       marathonId: _id,
       ...Object.fromEntries(formData.entries()),
     };
-
-    console.log(objectFormData);
     axios
       .post(`http://localhost:5000/marathonApplication`, objectFormData)
       .then((res) => {

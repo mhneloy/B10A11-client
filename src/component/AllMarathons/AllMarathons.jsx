@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import RunningMarathonCard from "../RunningMarathonCard/RunningMarathonCard";
+import axios from "axios";
 
 const AllMarathons = () => {
   const [sortOrder, setSortOrder] = useState("desc");
@@ -12,10 +13,11 @@ const AllMarathons = () => {
   } = useQuery({
     queryKey: ["marathons", sortOrder],
     queryFn: async () => {
-      const res = await fetch(
-        `http://localhost:5000/allmarathons/marathons?sortOrder=${sortOrder}`
+      const res = await axios(
+        `http://localhost:5000/allmarathons/marathons?sortOrder=${sortOrder}`,
+        { withCredentials: true }
       );
-      return res.json();
+      return res.data;
     },
   });
 
@@ -63,7 +65,7 @@ const AllMarathons = () => {
 
       {/* Marathon Cards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {marathons.map((marathon, idx) => (
+        {marathons?.map((marathon, idx) => (
           <RunningMarathonCard key={idx} marathon={marathon} />
         ))}
       </div>

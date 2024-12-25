@@ -28,18 +28,21 @@ const ContextProvider = ({ children }) => {
 
   // login user
   const loginUser = (email, pass) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, pass);
   };
 
   // googleLogin
   const googleProvider = new GoogleAuthProvider();
   const googleLogin = () => {
+    setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
   // register user
 
   const createUser = (email, pass) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, pass);
   };
 

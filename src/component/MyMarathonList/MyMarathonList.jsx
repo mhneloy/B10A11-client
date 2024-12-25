@@ -1,4 +1,4 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { FaEdit, FaImage, FaMapMarkerAlt, FaTrashAlt } from "react-icons/fa";
 import useCustomContex from "../../shareComponent/AuthContext/useCustomContex";
 import Swal from "sweetalert2";
@@ -8,9 +8,10 @@ import { useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import { useState } from "react";
 import { format } from "date-fns";
+import useAxiosSecure from "../useAxiosSecure/useAxiosSecure";
 const MyMarathonList = () => {
+  const axiousInterce = useAxiosSecure();
   const { user } = useCustomContex();
-  const queryClient = useQueryClient();
   const navigate = useNavigate();
 
   // Fetch marathons using React Query
@@ -18,13 +19,15 @@ const MyMarathonList = () => {
     data: marathons,
     isFetching: ispending,
     error,
+    refetch,
   } = useQuery({
     queryKey: ["marathons"],
     queryFn: async () => {
-      const response = await fetch(
-        `http://localhost:5000/allmarathons/marathons?email=${user.email}`
+      const response = await axiousInterce.get(
+        `/allmarathons/marathons?email=${user.email}`,
+        { withCredentials: true }
       );
-      return response.json();
+      return response.data;
     },
   });
 
@@ -48,14 +51,9 @@ const MyMarathonList = () => {
         axios
           .delete(`http://localhost:5000/delete/marathonCollection/${id}`)
           .then((res) => {
-            if (res.data.deleteCount > 0) {
+            if (res.data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
-
-              // Update React Query cache
-              queryClient.setQueryData(["marathons"], (oldData) => {
-                if (!oldData) return [];
-                return oldData.filter((marathon) => marathon._id !== id);
-              });
+              refetch();
             }
           })
           .catch((error) => {
