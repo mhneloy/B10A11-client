@@ -27,11 +27,16 @@ const MyMarathonList = () => {
     },
   });
 
-  const [startDate, setStartDate] = useState(format(new Date(), "yyyy-MM-dd"));
-  const [endDate, setEndDate] = useState(format(new Date(), "yyyy-MM-dd"));
-  const [marathonDate, setMarathonDate] = useState(
-    format(new Date(), "yyyy-MM-dd")
-  );
+  const [startDate, setStartDate] = useState();
+  const [endDate, setEndDate] = useState();
+  const [marathonDate, setMarathonDate] = useState();
+
+  const initializeDates = (marathon) => {
+    setStartDate(marathon?.startRegistrationDate || null);
+    setEndDate(marathon?.endRegistrationDate || null);
+    setMarathonDate(marathon?.marathonStartDate || null);
+  };
+
   // Handle delete action
   const handleDelete = (id) => {
     Swal.fire({
@@ -142,11 +147,12 @@ const MyMarathonList = () => {
                   <td className="py-3 px-4">{marathon?.email}</td>
                   <td className="py-3 px-4 flex justify-end gap-4">
                     <button
-                      onClick={() =>
+                      onClick={() => {
+                        initializeDates(marathon);
                         document
                           .getElementById(`modal${marathon._id}`)
-                          .showModal()
-                      }
+                          .showModal();
+                      }}
                       className="btn btn-sm btn-primary flex items-center gap-2"
                     >
                       <FaEdit /> Update
@@ -246,9 +252,7 @@ const MyMarathonList = () => {
                                 selected={
                                   startDate
                                     ? new Date(startDate)
-                                    : marathon?.startRegistrationDate
-                                    ? new Date(marathon?.startRegistrationDate)
-                                    : new Date()
+                                    : new Date(marathon?.startRegistrationDate)
                                 }
                                 dateFormat={"yyyy-MM-dd"}
                                 onChange={(date) =>
@@ -269,9 +273,7 @@ const MyMarathonList = () => {
                                 selected={
                                   endDate
                                     ? new Date(endDate)
-                                    : marathon?.endRegistrationDate
-                                    ? new Date(marathon.endRegistrationDate)
-                                    : new Date()
+                                    : new Date(marathon?.endRegistrationDate)
                                 }
                                 dateFormat={"yyyy-MM-dd"}
                                 onChange={(date) =>
@@ -292,9 +294,7 @@ const MyMarathonList = () => {
                                 selected={
                                   marathonDate
                                     ? new Date(marathonDate)
-                                    : marathon?.marathonStartDate
-                                    ? new Date(marathon?.marathonStartDate)
-                                    : new Date()
+                                    : new Date(marathon?.marathonStartDate)
                                 }
                                 dateFormat={"yyyy-MM-dd"}
                                 onChange={(date) =>
