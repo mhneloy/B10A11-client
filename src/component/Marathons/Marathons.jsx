@@ -7,7 +7,7 @@ const Marathons = () => {
     isLoading,
     error,
   } = useQuery({
-    queryKey: ["marathon"],
+    queryKey: ["marathons"],
     queryFn: async () => {
       const res = await fetch(
         `https://server-site-ashen.vercel.app/marathonsLimit`

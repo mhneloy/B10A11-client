@@ -33,7 +33,7 @@ const UpcomingMarathon = () => {
 
       {/* Marathon Cards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {marathons.map((marathon, idx) => (
+        {marathons?.map((marathon, idx) => (
           <UpMarathonCard key={idx} marathon={marathon} />
         ))}
       </div>

@@ -1,9 +1,39 @@
 import { FaMapMarkerAlt } from "react-icons/fa";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
+import useAxiosSecure from "../useAxiosSecure/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 const DetailsPage = () => {
-  const marathon = useLoaderData();
+  const { id } = useParams();
+
+  const axiosInstance = useAxiosSecure();
+  const {
+    data: marathon,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["marathon"],
+    queryFn: async () => {
+      const res = await axiosInstance.get(`/details/${id}`);
+      return res.data;
+    },
+  });
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center min-h-[50vh]">
+        <span className="loading loading-bars loading-lg"></span>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="text-center text-red-500 mt-10">
+        <p>Something went wrong. Please try again later.</p>
+      </div>
+    );
+  }
   const {
     _id,
     title,

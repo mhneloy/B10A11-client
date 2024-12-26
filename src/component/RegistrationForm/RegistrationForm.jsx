@@ -2,16 +2,29 @@ import axios from "axios";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { toast } from "react-toastify";
 import useCustomContex from "../../shareComponent/AuthContext/useCustomContex";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import DatePicker from "react-datepicker";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../useAxiosSecure/useAxiosSecure";
 
 const RegistrationForm = () => {
   const { user } = useCustomContex();
-
-  const marathon = useLoaderData();
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const axiosInstance = useAxiosSecure();
+  const {
+    data: marathon,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["marathon"],
+    queryFn: async () => {
+      const res = await axiosInstance.get(`/details/${id}`);
+      return res.data;
+    },
+  });
   const { _id, title, marathonStartDate } = marathon;
 
-  const navigate = useNavigate();
   const successNofity = () => {
     toast.success("Successfully Added", {
       position: "top-center",
@@ -47,6 +60,21 @@ const RegistrationForm = () => {
       });
   };
 
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center min-h-[50vh]">
+        <span className="loading loading-bars loading-lg"></span>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="text-center text-red-500 mt-10">
+        <p>Something went wrong. Please try again later.</p>
+      </div>
+    );
+  }
   return (
     <div className="p-6 bg-gradient-to-r from-[#e8f1f3] via-[#f2f7f9] to-[#e8f1f3] min-h-screen flex items-center justify-center">
       <div className="bg-[#f0f7f9] rounded-lg shadow-lg p-8 w-full max-w-4xl">

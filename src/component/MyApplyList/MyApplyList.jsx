@@ -16,7 +16,7 @@ const MyApplyList = () => {
   // Fetch marathons using React Query
   const {
     data: marathons,
-    isFetching: ispending,
+    isLoading: ispending,
     error,
     refetch,
   } = useQuery({
@@ -25,7 +25,6 @@ const MyApplyList = () => {
       const response = await axiosInstance.get(
         `/marathon/marthonApplication?email=${user.email}&title=${searchTitle}`
       );
-      console.log(response);
       return response.data;
     },
   });
