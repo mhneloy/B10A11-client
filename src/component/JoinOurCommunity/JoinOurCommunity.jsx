@@ -1,4 +1,5 @@
 import { FaRunning, FaUsers, FaHandshake } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const JoinOurCommunity = () => {
   const benefits = [
@@ -24,7 +25,7 @@ const JoinOurCommunity = () => {
 
   return (
     <section className="py-10 px-4 lg:px-20 bg-primary text-white">
-      {/* Section Heading */}
+      {/* Title Heading */}
       <div className="text-center mb-10">
         <h1 className="text-3xl lg:text-5xl font-bold mb-2">
           Join Our Community
@@ -34,7 +35,7 @@ const JoinOurCommunity = () => {
         </p>
       </div>
 
-      {/* Benefits Grid */}
+      {/* Benefits */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {benefits.map((benefit, index) => (
           <div
@@ -48,9 +49,12 @@ const JoinOurCommunity = () => {
         ))}
       </div>
       <div className="text-center mt-10">
-        <button className="btn btn-outline border-red-600 btn-accent !text-red-500 hover:text-white hover:bg-white transition-all duration-300">
+        <Link
+          to={"/marathons"}
+          className="btn btn-outline border-red-600 btn-accent !text-red-500 hover:text-white hover:bg-white transition-all duration-300"
+        >
           Join Now
-        </button>
+        </Link>
       </div>
     </section>
   );
