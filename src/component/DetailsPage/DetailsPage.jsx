@@ -62,7 +62,7 @@ const DetailsPage = () => {
   return (
     <div className="container mx-auto">
       <Helmet>
-        <title>Marathon-GuidLine | Details</title>
+        <title>Marathon-GuidLine | {`${title}`} Details</title>
       </Helmet>
       <div className="card bg-base-100 shadow-xl w-full border border-gray-200">
         {/* Image Section */}
