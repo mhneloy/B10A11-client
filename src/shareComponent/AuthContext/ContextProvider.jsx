@@ -15,11 +15,6 @@ import axios from "axios";
 export const Context = createContext(null);
 
 const ContextProvider = ({ children }) => {
-  // const [formData, setFormData] = useState({
-  //   email: "",
-  //   password: "",
-  // });
-  // user
   const [user, setuser] = useState(null);
   // loading
   const [loading, setLoading] = useState(true);
@@ -92,14 +87,12 @@ const ContextProvider = ({ children }) => {
   };
 
   const authInfo = {
-    // formData,
     user,
     loading,
     togol,
     setTogol,
     setLoading,
     setuser,
-    // setFormData,
     loginUser,
     googleLogin,
     createUser,

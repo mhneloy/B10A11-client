@@ -33,13 +33,13 @@ const Marathons = () => {
   }
 
   return (
-    <section className="py-10 px-4 lg:px-20 bg-gray-50">
+    <section className="py-10 px-4 lg:px-20 bg-transparent">
       {/* Section Heading */}
       <div className="text-center mb-10">
         <h1 className="text-3xl lg:text-5xl font-bold text-primary mb-2">
           Explore All Marathons
         </h1>
-        <p className="text-gray-600 text-sm lg:text-base">
+        <p className="text-white text-sm lg:text-base">
           Find the perfect marathon for you and join the running community
           today!
         </p>

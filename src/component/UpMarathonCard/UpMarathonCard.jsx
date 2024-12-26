@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { FaMapMarkerAlt } from "react-icons/fa";
-
+import { motion } from "motion/react";
 const UpMarathonCard = ({ marathon }) => {
   const {
     title,
@@ -11,7 +11,16 @@ const UpMarathonCard = ({ marathon }) => {
   } = marathon;
 
   return (
-    <div className="card bg-base-100 shadow-xl w-full border border-gray-200">
+    <motion.div
+      className="card bg-base-100 shadow-xl w-full border border-gray-200"
+      animate={{
+        scale: [1, 0.9, 1],
+      }}
+      transition={{
+        duration: 2,
+        repeat: Infinity,
+      }}
+    >
       {/* Image Section */}
       <figure className="relative">
         <img
@@ -43,7 +52,7 @@ const UpMarathonCard = ({ marathon }) => {
           </span>
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

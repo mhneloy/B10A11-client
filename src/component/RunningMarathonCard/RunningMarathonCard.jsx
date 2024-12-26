@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
-
+import { motion } from "motion/react";
 const RunningMarathonCard = ({ marathon }) => {
   const {
     _id,
@@ -13,7 +13,16 @@ const RunningMarathonCard = ({ marathon }) => {
   } = marathon;
 
   return (
-    <div className="card bg-base-100 shadow-xl w-full border border-gray-200">
+    <motion.div
+      className="card bg-base-100 shadow-xl w-full border border-gray-200"
+      whileHover={{
+        scale: [1, 0.9, 1],
+      }}
+      transition={{
+        duration: 2,
+        repeat: Infinity,
+      }}
+    >
       {/* Image Section */}
       <figure className="relative">
         <img
@@ -52,7 +61,7 @@ const RunningMarathonCard = ({ marathon }) => {
           </Link>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

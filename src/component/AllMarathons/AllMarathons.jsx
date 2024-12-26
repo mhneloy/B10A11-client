@@ -38,13 +38,13 @@ const AllMarathons = () => {
   }
 
   return (
-    <section className="py-10 px-4 lg:px-20 bg-gray-50">
+    <section className="py-10 px-4 lg:px-20 bg-transparent">
       {/* Section Heading */}
       <div className="text-center mb-10">
         <h1 className="text-3xl lg:text-5xl font-bold text-primary mb-2">
           Explore All Marathons
         </h1>
-        <p className="text-gray-600 text-sm lg:text-base">
+        <p className="text-white text-sm lg:text-base">
           Find the perfect marathon for you and join the running community
           today!
         </p>
@@ -52,7 +52,7 @@ const AllMarathons = () => {
 
       {/* Sorting Options */}
       <div className="text-center mb-6">
-        <label className="mr-2 text-gray-600">Sort by:</label>
+        <label className="mr-2 text-white">Sort by:</label>
         <select
           className="select select-bordered w-40"
           value={sortOrder}

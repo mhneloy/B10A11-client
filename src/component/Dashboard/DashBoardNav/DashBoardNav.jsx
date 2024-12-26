@@ -1,34 +1,52 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const DashBoardNav = () => {
   return (
     <nav className="bg-transparent text-white">
       <div className="py-4">
         {/* Navbar Menu */}
-        <ul className="flex flex-col items-start space-y-4">
-          <li>
-            <Link
+        <ul className="flex flex-col items-start space-y-4 justify-center">
+          <li className="w-full flex justify-center items-center">
+            <NavLink
               to="/dashboard"
-              className="text-lg font-semibold hover:text-[#2A9D8F]"
+              className={({ isActive }) => {
+                return `text-lg font-semibold ${
+                  isActive
+                    ? "text-[#2A9D8F]"
+                    : "!text-white hover:text-[#2A9D8F]"
+                }`;
+              }}
             >
               Add Marathon
-            </Link>
+            </NavLink>
           </li>
-          <li>
-            <Link
+          <li className="w-full flex justify-center items-center">
+            <NavLink
               to="dashboard/myMarathonList"
-              className="text-lg font-semibold hover:text-[#2A9D8F]"
+              className={({ isActive }) => {
+                return `text-lg font-semibold ${
+                  isActive
+                    ? "text-[#2A9D8F]"
+                    : "text-white hover:text-[#2A9D8F]"
+                }`;
+              }}
             >
               My Marathon List
-            </Link>
+            </NavLink>
           </li>
-          <li>
-            <Link
+          <li className="w-full flex justify-center items-center">
+            <NavLink
               to="dashboard/myApplyList"
-              className="text-lg font-semibold hover:text-[#2A9D8F]"
+              className={({ isActive }) => {
+                return `text-lg font-semibold ${
+                  isActive
+                    ? "text-[#2A9D8F]"
+                    : "text-white hover:text-[#2A9D8F]"
+                }`;
+              }}
             >
               My Apply List
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>
