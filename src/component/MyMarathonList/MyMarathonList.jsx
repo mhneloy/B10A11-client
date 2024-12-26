@@ -145,7 +145,7 @@ const MyMarathonList = () => {
                   </td>
                   <td className="py-3 px-4">{marathon?.title}</td>
                   <td className="py-3 px-4">{marathon?.email}</td>
-                  <td className="py-3 px-4 flex justify-end gap-4">
+                  <td className="py-3 px-4 flex flex-col md:flex-row md:justify-end gap-4">
                     <button
                       onClick={() => {
                         initializeDates(marathon);
@@ -155,13 +155,13 @@ const MyMarathonList = () => {
                       }}
                       className="btn btn-sm btn-primary flex items-center gap-2"
                     >
-                      <FaEdit /> Update
+                      <FaEdit className="hidden md:block" /> Update
                     </button>
                     <button
                       className="btn btn-sm btn-error flex items-center gap-2"
                       onClick={() => handleDelete(marathon?._id)}
                     >
-                      <FaTrashAlt /> Delete
+                      <FaTrashAlt className="hidden md:block" /> Delete
                     </button>
                   </td>
                   <dialog

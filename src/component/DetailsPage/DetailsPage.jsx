@@ -91,7 +91,7 @@ const DetailsPage = () => {
             </h3>
             <CountdownCircleTimer
               isPlaying
-              duration={timeRemaining / 1000} // Convert ms to seconds
+              duration={timeRemaining / 1000}
               colors={["#004777", "#F7B801", "#A30000"]}
               colorsTime={[10, 5, 0]}
               size={120}
