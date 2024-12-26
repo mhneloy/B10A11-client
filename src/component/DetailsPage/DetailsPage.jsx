@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import useAxiosSecure from "../useAxiosSecure/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet-async";
 
 const DetailsPage = () => {
   const { id } = useParams();
@@ -60,6 +61,9 @@ const DetailsPage = () => {
 
   return (
     <div className="container mx-auto">
+      <Helmet>
+        <title>Marathon-GuidLine | Details</title>
+      </Helmet>
       <div className="card bg-base-100 shadow-xl w-full border border-gray-200">
         {/* Image Section */}
         <figure className="relative">
