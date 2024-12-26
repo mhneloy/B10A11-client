@@ -1,4 +1,3 @@
-import axios from "axios";
 import { format } from "date-fns";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
@@ -6,6 +5,7 @@ import "react-datepicker/dist/react-datepicker.css"; // Import the CSS
 import { FaImage, FaMapMarkerAlt } from "react-icons/fa";
 import useCustomContex from "../../shareComponent/AuthContext/useCustomContex";
 import { toast } from "react-toastify";
+import useAxiosSecure from "../useAxiosSecure/useAxiosSecure";
 
 const AddMarathon = () => {
   const [startDate, setStartDate] = useState(format(new Date(), "yyyy-MM-dd"));
@@ -26,6 +26,7 @@ const AddMarathon = () => {
       position: "top-left",
     });
   };
+  const axiosInstance = useAxiosSecure();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -41,12 +42,8 @@ const AddMarathon = () => {
     };
 
     console.log(objectFormData);
-    axios
-      .post(
-        `https://server-site-ashen.vercel.app/addmarathons`,
-        objectFormData,
-        { withCredentials: true }
-      )
+    axiosInstance
+      .post(`/addmarathons`, objectFormData)
       .then((res) => {
         if (res.data.acknowledged) {
           successNofity();
