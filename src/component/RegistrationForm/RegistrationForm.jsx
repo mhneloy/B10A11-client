@@ -6,6 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../useAxiosSecure/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const RegistrationForm = () => {
   const { user } = useCustomContex();
@@ -26,7 +27,7 @@ const RegistrationForm = () => {
   const { _id, title, marathonStartDate } = marathon;
 
   const successNofity = () => {
-    toast.success("Successfully Added", {
+    toast.success("Successfully Registred", {
       position: "top-center",
     });
   };
@@ -77,6 +78,9 @@ const RegistrationForm = () => {
   }
   return (
     <div className="p-6 bg-gradient-to-r from-[#e8f1f3] via-[#f2f7f9] to-[#e8f1f3] min-h-screen flex items-center justify-center">
+      <Helmet>
+        <title>Marathon-GuidLine | Apply Form</title>
+      </Helmet>
       <div className="bg-[#f0f7f9] rounded-lg shadow-lg p-8 w-full max-w-4xl">
         <h2 className="text-2xl font-bold text-gray-700 mb-6 text-center">
           Register In {title} Marathon

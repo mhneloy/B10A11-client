@@ -8,6 +8,7 @@ import DatePicker from "react-datepicker";
 import { useState } from "react";
 import { format } from "date-fns";
 import useAxiosSecure from "../useAxiosSecure/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 const MyMarathonList = () => {
   const axiousInterce = useAxiosSecure();
   const { user } = useCustomContex();
@@ -119,6 +120,9 @@ const MyMarathonList = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Marathon-GuidLine | My Marathon List</title>
+      </Helmet>
       <div className="p-6 bg-gradient-to-r from-[#e8f1f3] via-[#f2f7f9] to-[#e8f1f3] min-h-screen">
         <h2 className="text-2xl font-bold mb-6">My Marathon List</h2>
         <div className="overflow-x-auto">

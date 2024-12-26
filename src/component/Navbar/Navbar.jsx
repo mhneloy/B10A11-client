@@ -98,7 +98,7 @@ const Navbar = () => {
               className={`text-2xl md:text-4xl font-bold text-white`}
             >
               <Typewriter
-                words={["Marathon-GruidLine"]}
+                words={["Marathon-GuidLine"]}
                 loop={"infinitely"}
               ></Typewriter>
             </Link>

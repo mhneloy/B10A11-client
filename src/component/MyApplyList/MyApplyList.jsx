@@ -6,6 +6,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useRef, useState } from "react";
 import useAxiosSecure from "../useAxiosSecure/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const MyApplyList = () => {
   const axiosInstance = useAxiosSecure();
@@ -115,6 +116,9 @@ const MyApplyList = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Marathon-GuidLine | My Apply List</title>
+      </Helmet>
       <div className="p-6 bg-gradient-to-r from-[#e8f1f3] via-[#f2f7f9] to-[#e8f1f3] min-h-screen">
         <h2 className="text-2xl font-bold mb-6">My Apply List</h2>
         <div className="mb-6 relative">

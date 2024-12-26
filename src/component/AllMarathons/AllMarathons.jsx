@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import RunningMarathonCard from "../RunningMarathonCard/RunningMarathonCard";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 const AllMarathons = () => {
   const [sortOrder, setSortOrder] = useState("desc");
@@ -39,6 +40,9 @@ const AllMarathons = () => {
 
   return (
     <section className="py-10 px-4 lg:px-20 bg-transparent">
+      <Helmet>
+        <title>Marathon-GuidLine | All Marathon</title>
+      </Helmet>
       {/* Section Heading */}
       <div className="text-center mb-10">
         <h1 className="text-3xl lg:text-5xl font-bold text-primary mb-2">
