@@ -187,7 +187,7 @@ const AddMarathon = () => {
           {/* Submit Button */}
           <div className="md:col-span-2 text-center">
             <button type="submit" className="btn btn-primary w-full md:w-auto">
-              Submit Marathon
+              Add Marathon
             </button>
           </div>
         </form>
