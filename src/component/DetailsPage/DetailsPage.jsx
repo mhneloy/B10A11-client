@@ -4,7 +4,6 @@ import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 const DetailsPage = () => {
   const marathon = useLoaderData();
-  console.log(marathon);
   const {
     _id,
     title,

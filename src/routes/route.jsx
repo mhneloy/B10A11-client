@@ -30,13 +30,14 @@ export const route = createBrowserRouter([
       },
       {
         path: "/details/:id",
-        loader: ({ params }) => {
-          return axios(
+        loader: async ({ params }) => {
+          const res = await axios(
             `https://server-site-ashen.vercel.app/details/${params.id}`,
             {
               withCredentials: true,
             }
-          ).then((res) => res.data);
+          );
+          return res.data;
         },
         element: (
           <PrivateRoute>
@@ -46,13 +47,14 @@ export const route = createBrowserRouter([
       },
       {
         path: "/registrationform/:id",
-        loader: ({ params }) => {
-          return axios(
+        loader: async ({ params }) => {
+          const res = await axios(
             `https://server-site-ashen.vercel.app/details/${params.id}`,
             {
               withCredentials: true,
             }
-          ).then((res) => res.data.data);
+          );
+          return res.data;
         },
         element: (
           <PrivateRoute>
