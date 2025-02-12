@@ -68,9 +68,7 @@ const Contact = () => {
             </p>
             <div className="flex items-center gap-4">
               <FaMapMarkerAlt className="text-[#57A9AE] text-2xl" />
-              <p className="text-gray-700">
-                123 Main Street, Dhaka, Bangladesh
-              </p>
+              <p className="white">123 Main Street, Dhaka, Bangladesh</p>
             </div>
             <div className="flex items-center gap-4">
               <FaPhoneAlt className="text-[#57A9AE]  text-2xl" />
