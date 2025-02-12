@@ -82,19 +82,19 @@ const Contact = () => {
             <div className="flex gap-4 mt-4">
               <a
                 href="#"
-                className="text-white bg-[#4CAF50]  p-3 rounded-full hover:bg-blue-700"
+                className="text-white bg-[#57A9AE]  p-3 rounded-full hover:bg-blue-700"
               >
                 <FaFacebookF />
               </a>
               <a
                 href="#"
-                className="text-white bg-[#4CAF50] p-3 rounded-full hover:bg-blue-700"
+                className="text-white bg-[#57A9AE] p-3 rounded-full hover:bg-blue-700"
               >
                 <FaTwitter />
               </a>
               <a
                 href="#"
-                className="text-white bg-[#4CAF50] p-3 rounded-full hover:bg-blue-700"
+                className="text-white bg-[#57A9AE] p-3 rounded-full hover:bg-blue-700"
               >
                 <FaLinkedinIn />
               </a>
