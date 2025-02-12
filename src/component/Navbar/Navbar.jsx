@@ -32,6 +32,18 @@ const Navbar = () => {
           Marathons
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "!text-black !bg-[#00FFFF] font-bold hover:bg-[#00FFFF] "
+              : " font-bold  hover:bg-[#00FFFF] hover:text-black lg:text-white"
+          }
+          to="/contact"
+        >
+          Contact Us
+        </NavLink>
+      </li>
       {user && (
         <li>
           <NavLink

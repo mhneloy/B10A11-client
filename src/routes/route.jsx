@@ -12,6 +12,7 @@ import PrivateRoute from "../component/PrivateRote/PrivateRoute";
 import AllMarathons from "../component/AllMarathons/AllMarathons";
 import DetailsPage from "../component/DetailsPage/DetailsPage";
 import RegistrationForm from "../component/RegistrationForm/RegistrationForm";
+import Contact from "../component/ContactUs/Contact";
 
 export const route = createBrowserRouter([
   {
@@ -27,6 +28,11 @@ export const route = createBrowserRouter([
         path: "/marathons",
         element: <AllMarathons />,
       },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+
       {
         path: "/details/:id",
         element: (

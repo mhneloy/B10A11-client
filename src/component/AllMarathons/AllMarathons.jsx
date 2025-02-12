@@ -21,6 +21,7 @@ const AllMarathons = () => {
       return res.data;
     },
   });
+  console.log(marathons);
 
   if (isPending) {
     return (
