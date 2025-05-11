@@ -64,8 +64,10 @@ const Navbar = () => {
   // handle change
 
   const handleChange = (e) => {
-    console.log(e.target.checked);
-    setTogol(!togol);
+    const ischeked = e.target.checked;
+    localStorage.setItem("marathonTheme", ischeked);
+    let isTrue = localStorage.getItem("marathonTheme") === "true";
+    setTogol(isTrue);
   };
 
   return (
@@ -166,7 +168,7 @@ const Navbar = () => {
           <div>
             <label className="swap swap-rotate w-fit">
               {/* this hidden checkbox controls the state */}
-              <input type="checkbox" onChange={handleChange} />
+              <input type="checkbox" checked={togol} onChange={handleChange} />
 
               {/* sun icon */}
               <svg

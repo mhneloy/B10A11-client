@@ -10,7 +10,7 @@ import { format } from "date-fns";
 import useAxiosSecure from "../useAxiosSecure/useAxiosSecure";
 import { Helmet } from "react-helmet-async";
 const MyMarathonList = () => {
-  const axiousInterce = useAxiosSecure();
+  const axiosInstance = useAxiosSecure();
   const { user } = useCustomContex();
   const {
     data: marathons,
@@ -20,7 +20,7 @@ const MyMarathonList = () => {
   } = useQuery({
     queryKey: ["marathons"],
     queryFn: async () => {
-      const response = await axiousInterce.get(
+      const response = await axiosInstance.get(
         `/allmarathons/marathons?email=${user.email}`,
         { withCredentials: true }
       );

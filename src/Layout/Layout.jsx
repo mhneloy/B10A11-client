@@ -7,7 +7,6 @@ import { HelmetProvider } from "react-helmet-async";
 
 const Layout = () => {
   const { togol } = useCustomContex();
-  console.log(togol);
   return (
     <>
       <HelmetProvider>
