@@ -7,9 +7,11 @@ import { Typewriter } from "react-simple-typewriter";
 import bannerimg1 from "../../assets/banner1.webp";
 import bannerimg2 from "../../assets/banner2.webp";
 import bannerimg3 from "../../assets/banner3.webp";
+import { useNavigate } from "react-router-dom";
 
 const Banner = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const navigate = useNavigate();
 
   return (
     <section className="relative">
@@ -28,6 +30,12 @@ const Banner = () => {
           Power your race from registration through RaceDay with RunSignup’s
           expertly crafted, all-in-one platform for endurance events.
         </p>
+        <button
+          className="bg-[#00FFFF] px-3 py-2 rounded-lg text-xl font-bold mt-4"
+          onClick={() => navigate("/marathons")}
+        >
+          View More
+        </button>
       </div>
 
       {/* Main Swiper */}

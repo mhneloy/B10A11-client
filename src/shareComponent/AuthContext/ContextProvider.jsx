@@ -20,7 +20,7 @@ const ContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   // dark theme togol
   const [togol, setTogol] = useState(
-    localStorage.getItem("marathonTheme") === "true"
+    localStorage.getItem("marathonTheme") === "false"
   );
 
   // login user
