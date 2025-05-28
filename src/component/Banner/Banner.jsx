@@ -19,7 +19,7 @@ const Banner = () => {
       {/* Overlay text */}
       <div className="absolute top-[10%] md:top-1/4 left-1/2 transform -translate-x-1/2 z-10 text-center w-[90%] sm:w-[80%]">
         <h1 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl text-white font-extrabold h-[50px] md:h-auto ">
-          <span className=" text-green-400 ">
+          <span className=" text-[#00FFFF] ">
             <Typewriter
               words={["Your Marathon, Our Mission"]}
               loop={0} // 0 means infinite

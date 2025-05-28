@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { motion } from "motion/react";
 const RunningMarathonCard = ({ marathon }) => {
   const {
     _id,
