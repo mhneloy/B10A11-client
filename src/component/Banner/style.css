@@ -1,0 +1,12 @@
+.swiper-button-prev::after {
+  font-size: 24px;
+  font-weight: 700;
+}
+.swiper-button-next::after {
+  font-size: 24px;
+  font-weight: 700;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  width: calc(var(--swiper-navigation-size) / 92 * 2) !important;
+}

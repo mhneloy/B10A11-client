@@ -73,7 +73,7 @@ const Navbar = () => {
   return (
     <div className="">
       <div
-        className={`navbar flex flex-col justify-start items-start md:items-center bg-[#264653] sm:flex-row md:justify-normal z-40 px-4 lg:px-[100px] `}
+        className={`navbar flex flex-row justify-between items-center md:items-center bg-[#264653] sm:flex-row md:justify-normal z-40 px-4 lg:px-[100px] h-[80px] md:h-fit `}
       >
         <div className="navbar-start justify-between md:justify-normal ">
           <div className="dropdown z-20">
@@ -140,7 +140,7 @@ const Navbar = () => {
               {/* Tooltip */}
               <div className="z-50 bg-blue-400 absolute top-[125%] left-1/2 -translate-x-1/2 w-max rounded-md hidden group-hover:block">
                 <div className="absolute w-4 h-4 rotate-45 bg-blue-400 -top-2 left-1/2 -translate-x-1/2"></div>
-                <div className="text-sm p-2 text-center">
+                <div className="absolute w-max text-sm p-2 text-center -left-[60px] rounded-sm bg-blue-400">
                   <p>{user.displayName || "Anonymous User"}</p>
                   <button
                     onClick={logout}
@@ -153,7 +153,7 @@ const Navbar = () => {
             </div>
           ) : (
             // Conditional Links for Non-Logged-In Users
-            <>
+            <div className="flex gap-1 flex-col md:flex-row">
               <Link to="/signIn" className="btn btn-sm bg-blue-500 text-white">
                 Login
               </Link>
@@ -163,9 +163,9 @@ const Navbar = () => {
               >
                 Register
               </Link>
-            </>
+            </div>
           )}
-          <div>
+          <div className="hidden md:visible">
             <label className="swap swap-rotate w-fit">
               {/* this hidden checkbox controls the state */}
               <input type="checkbox" checked={togol} onChange={handleChange} />

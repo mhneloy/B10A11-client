@@ -8,6 +8,7 @@ import bannerimg1 from "../../assets/banner1.webp";
 import bannerimg2 from "../../assets/banner2.webp";
 import bannerimg3 from "../../assets/banner3.webp";
 import { useNavigate } from "react-router-dom";
+import "./style.css";
 
 const Banner = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -16,9 +17,9 @@ const Banner = () => {
   return (
     <section className="relative">
       {/* Overlay text */}
-      <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 z-30 text-center w-[90%] sm:w-[80%]">
-        <h1 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl text-white font-extrabold">
-          <span className="text-green-400">
+      <div className="absolute top-[10%] md:top-1/4 left-1/2 transform -translate-x-1/2 z-10 text-center w-[90%] sm:w-[80%]">
+        <h1 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl text-white font-extrabold h-[50px] md:h-auto ">
+          <span className=" text-green-400 ">
             <Typewriter
               words={["Your Marathon, Our Mission"]}
               loop={0} // 0 means infinite
@@ -26,12 +27,12 @@ const Banner = () => {
           </span>
           ...
         </h1>
-        <p className="mt-4 text-sm sm:text-lg md:text-xl lg:text-2xl font-medium text-white">
+        <p className="mt-4 text-sm sm:text-lg md:text-xl lg:text-2xl md:font-medium text-white font-semibold">
           Power your race from registration through RaceDay with RunSignup’s
           expertly crafted, all-in-one platform for endurance events.
         </p>
         <button
-          className="bg-[#00FFFF] px-3 py-2 rounded-lg text-xl font-bold mt-4"
+          className="bg-[#00FFFF] px-2 py-1 md:px-3 md:py-2 rounded-lg text-base md:text-xl font-bold mt-4"
           onClick={() => navigate("/marathons")}
         >
           View More
