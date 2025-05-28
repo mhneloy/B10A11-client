@@ -51,7 +51,7 @@ const JoinOurCommunity = () => {
       <div className="text-center mt-10">
         <Link
           to={"/marathons"}
-          className="btn btn-outline border-red-600 btn-accent !text-red-500 hover:text-white hover:bg-white transition-all duration-300"
+          className="btn btn-outline border-[#264653] text-black  hover:text-white hover:bg-[#264653] transition-all duration-300"
         >
           Join Now
         </Link>

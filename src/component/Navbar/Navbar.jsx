@@ -165,7 +165,7 @@ const Navbar = () => {
               </Link>
             </div>
           )}
-          <div className="hidden md:visible">
+          <div className="hidden md:block">
             <label className="swap swap-rotate w-fit">
               {/* this hidden checkbox controls the state */}
               <input type="checkbox" checked={togol} onChange={handleChange} />
