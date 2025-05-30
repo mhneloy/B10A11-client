@@ -12,19 +12,19 @@ const RunningMarathonCard = ({ marathon }) => {
   } = marathon;
 
   return (
-    <div className=" relative rounded-md overflow-hidden group">
+    <div className=" relative h-72 md:h-96 rounded-md overflow-hidden group">
       {/* Image Section */}
       <figure className="relative">
         <img
           src={marathonImage}
           alt={title}
-          className="w-full h-96 object-cover"
+          className="w-full h-72 md:h-96 object-cover"
         />
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black to-transparent opacity-50"></div>
       </figure>
 
       {/* Card Body */}
-      <div className="p-2 card-body absolute -bottom-1/2 left-0 w-full h-1/2 group-hover:bottom-0 group-hover:bg-gray-800 group-hover:bg-opacity-50 group-hover:transition-all text-gray-900">
+      <div className="p-2 card-body absolute -bottom-1/2 left-0 w-full h-max group-hover:bottom-0 group-hover:bg-gray-800 group-hover:bg-opacity-50 group-hover:transition-all text-gray-900">
         {/* Marathon Title */}
         <h2 className="card-title text-lg font-semibold text-white">{title}</h2>
 
@@ -43,7 +43,7 @@ const RunningMarathonCard = ({ marathon }) => {
         </p>
 
         {/* Action Button */}
-        <div className="card-actions justify-end mt-4">
+        <div className="card-actions mt-4">
           <Link to={`/details/${_id}`} className="btn btn-primary w-full">
             See Details
           </Link>

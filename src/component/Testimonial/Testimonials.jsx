@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
+// import { useState } from "react";
 import ReactStarsRating from "react-awesome-stars-rating";
 const Testimonials = () => {
-  const [rating, setRating] = useState([]);
+  // const [rating, setRating] = useState([]);
   const {
     data: reviews,
     isPending: isLoading,
@@ -14,12 +14,6 @@ const Testimonials = () => {
       return res.json();
     },
   });
-
-  const onChange = (value, index) => {
-    const updatedRatings = [...rating];
-    updatedRatings[index] = value;
-    setRating(updatedRatings);
-  };
 
   if (isLoading) {
     return (
@@ -51,29 +45,36 @@ const Testimonials = () => {
 
       {/* Testimonials Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {reviews?.map((review, index) => (
-          <div
-            key={index}
-            className="p-6 bg-base-100 shadow-xl border border-gray-200 rounded-lg text-center"
-          >
-            <img
-              src={review.image}
-              alt={review.name}
-              className="w-20 h-20 mx-auto rounded-full mb-4"
-            />
-            <h2 className="text-xl font-semibold text-gray-800">
-              {review.name}
-            </h2>
-            <p className="text-sm text-gray-500 italic">{review.role}</p>
-            {/* rating star */}
-            <ReactStarsRating
-              value={rating[index] || 3}
-              onChange={(value) => onChange(value, index)}
-              className="flex gap-3 justify-center items-center"
-            />
-            <p className="text-gray-600 mt-4">{review.review}</p>
-          </div>
-        ))}
+        {reviews?.map((review, index) => {
+          // const handleChangeRating = (value) => {
+          //   const updatingRating = [...rating];
+          //   updatingRating[index] = value;
+          //   setRating(updatingRating);
+          // };
+          return (
+            <div
+              key={index}
+              className="p-6 bg-base-100 shadow-xl border border-gray-200 rounded-lg text-center"
+            >
+              <img
+                src={review.image}
+                alt={review.name}
+                className="w-20 h-20 mx-auto rounded-full mb-4"
+              />
+              <h2 className="text-xl font-semibold text-gray-800">
+                {review.name}
+              </h2>
+              <p className="text-sm text-gray-500 italic">{review.role}</p>
+              {/* rating star */}
+              <ReactStarsRating
+                value={4.5}
+                isHalf={true}
+                className="flex gap-3 justify-center items-center"
+              />
+              <p className="text-gray-600 mt-4">{review.review}</p>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

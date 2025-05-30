@@ -40,7 +40,7 @@ const JoinOurCommunity = () => {
         {benefits.map((benefit, index) => (
           <div
             key={index}
-            className="p-6 bg-white text-gray-800 rounded-lg shadow-xl text-center"
+            className="p-6 flex flex-col items-center bg-white text-gray-800 rounded-lg shadow-xl text-center"
           >
             <div className="mb-4">{benefit.icon}</div>
             <h2 className="text-xl font-semibold">{benefit.title}</h2>

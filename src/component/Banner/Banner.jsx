@@ -69,9 +69,9 @@ const Banner = () => {
           onSwiper={setThumbsSwiper}
           loop={true}
           spaceBetween={10}
-          slidesPerView={2}
-          sm:slidesPerView={3}
-          md:slidesPerView={4}
+          slidesperview={2}
+          sm:slidesperview={3}
+          md:slidesperview={4}
           freeMode={true}
           watchSlidesProgress={true}
           modules={[FreeMode, Navigation, Thumbs]}
