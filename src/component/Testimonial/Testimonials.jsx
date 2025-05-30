@@ -1,6 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-
+import { useState } from "react";
+import ReactStarsRating from "react-awesome-stars-rating";
 const Testimonials = () => {
+  const [rating, setRating] = useState([]);
   const {
     data: reviews,
     isPending: isLoading,
@@ -12,6 +14,13 @@ const Testimonials = () => {
       return res.json();
     },
   });
+
+  const onChange = (value, index) => {
+    const updatedRatings = [...rating];
+    updatedRatings[index] = value;
+    setRating(updatedRatings);
+  };
+
   if (isLoading) {
     return (
       <div className="flex justify-center items-center min-h-[50vh]">
@@ -56,6 +65,12 @@ const Testimonials = () => {
               {review.name}
             </h2>
             <p className="text-sm text-gray-500 italic">{review.role}</p>
+            {/* rating star */}
+            <ReactStarsRating
+              value={rating[index] || 3}
+              onChange={(value) => onChange(value, index)}
+              className="flex gap-3 justify-center items-center"
+            />
             <p className="text-gray-600 mt-4">{review.review}</p>
           </div>
         ))}
