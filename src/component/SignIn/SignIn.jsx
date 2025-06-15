@@ -32,9 +32,7 @@ const SignIn = () => {
     loginUser(email, password)
       .then((result) => {
         if (result.user) {
-          // axios.post(`https://server-site-ashen.vercel.app/jwt`, user).then((res) => {
-          //   console.log(res.data);
-          // });
+          console.log(result);
           successNofity();
           e.target.reset();
           if (location.state) {

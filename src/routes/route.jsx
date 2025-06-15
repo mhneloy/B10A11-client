@@ -63,11 +63,11 @@ export const route = createBrowserRouter([
           },
 
           {
-            path: "dashboard/myMarathonList",
+            path: "myMarathonList",
             element: <MyMarathonList />,
           },
           {
-            path: "dashboard/myApplyList",
+            path: "myApplyList",
             element: <MyApplyList />,
           },
         ],

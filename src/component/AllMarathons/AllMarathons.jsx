@@ -15,7 +15,7 @@ const AllMarathons = () => {
     queryKey: ["marathons", sortOrder],
     queryFn: async () => {
       const res = await axios(
-        `https://server-site-ashen.vercel.app/allmarathons?sortOrder=${sortOrder}`,
+        `https://server-site-md-mahmudul-hassans-projects.vercel.app/allmarathons?sortOrder=${sortOrder}`,
         { withCredentials: true }
       );
       return res.data;

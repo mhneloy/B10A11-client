@@ -54,12 +54,16 @@ const ContextProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setuser(currentUser);
       if (currentUser?.email) {
-        const user = { email: currentUser.email };
+        const user = { email: currentUser?.email };
         console.log(user, "hello user");
         axios
-          .post(`https://server-site-ashen.vercel.app/jwt`, user, {
-            withCredentials: true,
-          })
+          .post(
+            `https://server-site-md-mahmudul-hassans-projects.vercel.app/jwt`,
+            user,
+            {
+              withCredentials: true,
+            }
+          )
           .then((res) => {
             console.log(res.data);
           })
@@ -67,7 +71,7 @@ const ContextProvider = ({ children }) => {
       } else {
         axios
           .post(
-            `https://server-site-ashen.vercel.app/jwtLogout`,
+            `https://server-site-md-mahmudul-hassans-projects.vercel.app/jwtLogout`,
             {},
             {
               withCredentials: true,

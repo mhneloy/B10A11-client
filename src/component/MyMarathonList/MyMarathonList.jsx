@@ -20,9 +20,8 @@ const MyMarathonList = () => {
   } = useQuery({
     queryKey: ["marathons"],
     queryFn: async () => {
-      const response = await axiosInstance.get(
-        `/allmarathons/marathons?email=${user.email}`,
-        { withCredentials: true }
+      const response = await axios.get(
+        `/allmarathons/marathons?email=${user.email}`
       );
       return response.data;
     },

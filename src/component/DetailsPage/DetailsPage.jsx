@@ -4,6 +4,7 @@ import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import useAxiosSecure from "../useAxiosSecure/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
+import axios from "axios";
 
 const DetailsPage = () => {
   const { id } = useParams();
@@ -16,7 +17,7 @@ const DetailsPage = () => {
   } = useQuery({
     queryKey: ["marathon"],
     queryFn: async () => {
-      const res = await axiosInstance.get(`/details/${id}`);
+      const res = await axios.get(`/details/${id}`);
       return res.data;
     },
   });

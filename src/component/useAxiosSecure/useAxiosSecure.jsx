@@ -4,30 +4,42 @@ import useCustomContex from "../../shareComponent/AuthContext/useCustomContex";
 import { useNavigate } from "react-router-dom";
 
 const axiosInstance = axios.create({
-  // baseURL: "http://localhost:5000",
-  baseURL: "https://server-site-ashen.vercel.app",
+  baseURL: "https://server-site-md-mahmudul-hassans-projects.vercel.app",
   withCredentials: true,
 });
+
 const useAxiosSecure = () => {
-  const { logout } = useCustomContex();
+  const { user, logout } = useCustomContex();
   const navigate = useNavigate();
+
   useEffect(() => {
-    axiosInstance.interceptors.response.use(
-      (response) => {
-        return response;
-      },
-      (err) => {
-        if (err.status === 401 || err.status === 403) {
-          logout()
-            .then(() => {
-              navigate("/signIn");
-              console.log(err);
-            })
-            .catch((err) => console.log(err));
+    const interceptor = axiosInstance.interceptors.response.use(
+      (response) => response,
+      async (err) => {
+        const status = err?.response?.status;
+
+        // Check user is logged in
+        if ((status === 401 || status === 403) && user?.email) {
+          console.warn("Auth error for user:", user.email);
+
+          try {
+            await logout();
+            navigate("/signIn");
+          } catch (logoutErr) {
+            console.error("Logout failed:", logoutErr);
+          }
         }
+
+        return Promise.reject(err); // Always rethrow the error
       }
     );
-  }, [navigate, logout]);
+
+    // Important: Cleanup interceptor when component unmounts
+    return () => {
+      axiosInstance.interceptors.response.eject(interceptor);
+    };
+  }, [navigate, logout, user?.email]); // make sure it updates when user changes
+
   return axiosInstance;
 };
 
